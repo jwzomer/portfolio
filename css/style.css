@@ -1,0 +1,237 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 20px;
+    color: #666;
+    overflow-x: clip;
+    --sans-serif: "Afacad Flux", sans-serif;
+    --background: #031126;
+    --color: #ecf0fe;
+    --accent: #28c8b0;
+    --accent-2: #c548db;
+    --row-gap: 1rem;
+    --column-gap: 30px;
+    --gap: var(--row-gap) var(--column-gap);
+    --padding: var(--row-gap) var(--column-gap);
+    background: var(--background);
+    color: var(--color);
+    font-family: var(--sans-serif);
+}
+
+body {
+    margin: 0;
+    padding-inline: clamp(15px, 6vw, 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+header,
+main,
+footer {
+    /* padding: var(--padding); */
+    padding-block: var(--row-gap);
+}
+
+:is(h1, h2, h3, h4) {
+    font-family: "Besley", serif;
+    letter-spacing: -.05ch;
+    margin-block: 0;
+    font-weight: 500;
+    line-height: 1;
+}
+
+main :is(h1, h2, h3, h4) {
+    margin-bottom: .75em;
+}
+
+main :is(h1, h2, h3, h4):is(:last-child) {
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1.15em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    margin-bottom: .75rem;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: var(--accent);
+    transition: .125s color ease-in-out;
+}
+
+a:is(:hover, :focus) {
+    color: var(--color);
+}
+
+
+/* Header */
+
+header {
+    /* position: sticky;
+    top: 0; */
+    --gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    justify-content: space-between;
+}
+
+header label {
+    font-family: var(--sans-serif);
+    font-weight: 300;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+header label:has(:checked) {
+    color: var(--accent);
+}
+
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: transparent;
+    /* Not removed via appearance */
+    margin: 0;
+}
+
+.contact-list {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+}
+
+li:has(.contact-list) {
+    margin-left: auto;
+}
+
+.contact-list a {
+    display: block;
+    height: 30px;
+}
+
+
+/* Main */
+
+.samples-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: var(--gap);
+    padding: 0;
+}
+
+.samples-list li {
+    border-radius: 1vh;
+    overflow: clip;
+}
+
+.samples-list li:has([open]) {
+    order: -1;
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.samples-list details>summary {
+    list-style: none;
+}
+
+.samples-list img {
+    --max-height: 25vh;
+    display: block;
+    width: 100%;
+    max-height: var(--max-height);
+    object-fit: cover;
+    object-position: top;
+    transition: none;
+}
+
+.samples-list details:not([open]) img {
+    transition: 1s object-position;
+}
+
+.samples-list details:not([open]):is(:hover, :focus) img {
+    object-position: bottom;
+    transition: 10s object-position;
+}
+
+@media (max-width: 1600px) {
+    .samples-list li:has([open]) {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 1360px) {
+    .samples-list li:has([open]) {
+        grid-column: span 3;
+        grid-row: span 3;
+    }
+    details[open] {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1150px) {
+    .samples-list li:has([open]) {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 917px) {
+    /* From here down, make everything appear open */
+}
+
+
+/* Open Summary */
+
+details[open] {
+    display: flex;
+    background: #192a43;
+    height: 100%;
+}
+
+details[open] img {
+    max-height: calc((var(--max-height) * 2) + var(--row-gap));
+}
+
+details[open] summary {
+    min-width: 50%;
+}
+
+.full-details {
+    padding: 35px 40px;
+    height: 100%;
+}

@@ -1,70 +1,146 @@
-<header>
-    <h1 class="logotype">John Zomer - Web Developer</span>
-        <nav id="header-navigation">
-            <ul>
-                <li>
-                    <a href="mailto:zomer.john.w@gmail.com"></a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/john-zomer-a5b1aa12/"></a>
-                </li>
-            </ul>
-        </nav>
-</header>
-<main>
-    <h2>
-        Web Development examples
-    </h2>
-    <ul id="samples-list">
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-        <li>
-            <img src="images/" />
-            <details>
-                <summary></summary>
-            </details>
-        </li>
-    </ul>
-</main>
-<footer>
-    <h2>Testimonials</h2>
-    <ul id="testimonials-list">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <section id="credits-section">
-        Hand coded by John Zomer. All rights reserved.
-    </section>
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Besley:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <title>Portfolio of John Zomer</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            John Zomer -
+            <label>Web Developer,<input type="radio" name="sample-type" checked /></label>
+            <label>Graphic Designer<input type="radio" name="sample-type" /></label>
+        </h1>
+        <ul class="contact-list">
+            <li>
+                <a href="mailto:zomer.john.w@gmail.com">
+                    <img src="images/email-icon.svg" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/john-zomer-a5b1aa12/">
+                    <img src="images/linkedin-icon.svg" />
+                </a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <h2>
+            Web Development examples
+        </h2>
+        <ul class="samples-list">
+            <li>
+                <details open>
+                    <summary>
+                        <img src="images/ista-full.png" alt="Screenshot of International Safe Transit Association website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://ista.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>
+                        <img src="https://picsum.photos/1200/1200" alt="Screenshot of NEMOA website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>NEMOA ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://nemoa.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>
+                        <img src="images/memberleap-cropped.png" alt="Screenshot of MemberLeap website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>MemberLeap ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://memberleap.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>
+                        <img src="images/rolf-full.png" alt="Screenshot of Rolfing Institute website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://rolf.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>
+                        <img src="images/umac-full.png" alt="Screenshot of UMACHA website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>UMACHA Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://umacha.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>
+                        <img src="https://picsum.photos/1200/1200" alt="Screenshot of BC Teal website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>BCTEAL ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://bcteal.org/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li>
+            <!-- <li>
+                <details>
+                    <summary>
+                        <img src="images/vieth-consulting-cropped.png" alt="Screenshot of Vieth Consulting website" />
+                    </summary>
+                    <section class="full-details">
+                        <p>Vieth Consulting ipsum dolor sit amet consectetur adipisicing elit. Dolor sit, ab tempore consequatur, cum neque, laborum totam officia itaque doloremque ipsa voluptates nihil blanditiis ipsam distinctio? Debitis earum dolore quae.</p>
+                        <a href="https://viethconsulting.com/" target="_blank" class="button-link">View site</a>
+                    </section>
+                </details>
+            </li> -->
+        </ul>
+    </main>
+    <footer>
+        <!-- <h2>Testimonials</h2>
+        <ul id="testimonials-list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul> -->
+        <section id="credits-section">
+            Hand coded by John Zomer. All rights reserved.
+        </section>
+    </footer>
+</body>
+<script>
+    $('details').on("click", function(event) {
+        $('details').not(event).prop("open", "");
+    });
+</script>
+
+
+</html>
