@@ -10,9 +10,10 @@
     overflow-x: clip;
     --sans-serif: "Afacad Flux", sans-serif;
     --background: #031126;
+    --open: #192a43;
     --color: #ecf0fe;
     --accent: #28c8b0;
-    --accent-2: #c548db;
+    --accent-2: #9f40b0;
     --row-gap: 1rem;
     --column-gap: 30px;
     --gap: var(--row-gap) var(--column-gap);
@@ -34,7 +35,6 @@ body {
 header,
 main,
 footer {
-    /* padding: var(--padding); */
     padding-block: var(--row-gap);
 }
 
@@ -119,12 +119,9 @@ header label:has(:checked) {
 }
 
 input[type="radio"] {
-    /* Add if not using autoprefixer */
     -webkit-appearance: none;
     appearance: none;
-    /* For iOS < 15 to remove gradient background */
     background-color: transparent;
-    /* Not removed via appearance */
     margin: 0;
 }
 
@@ -146,6 +143,20 @@ li:has(.contact-list) {
 
 /* Main */
 
+main {
+    /* Hide main sections unless a button is checked */
+    display: none;
+    opacity: 0;
+    transition: .125s opacity ease-in-out;
+    transition-delay: .25s;
+}
+
+header:has([data-toggle="development"]:checked)~#web-development-main,
+header:has([data-toggle="design"]:checked)~#graphic-design-main {
+    display: block;
+    opacity: 1;
+}
+
 .samples-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
@@ -165,8 +176,16 @@ li:has(.contact-list) {
     grid-row: span 2;
 }
 
-.samples-list details>summary {
+#graphic-design-main .samples-list li:has([open]) {
+    grid-column: span 5;
+}
+
+.samples-list summary {
     list-style: none;
+}
+
+summary:has(.samples-list img[src*="svg"]) {
+    background: white;
 }
 
 .samples-list img {
@@ -179,23 +198,31 @@ li:has(.contact-list) {
     transition: none;
 }
 
-.samples-list details:not([open]) img {
+
+/* Scroll on hover */
+
+
+/* .samples-list details:not([open]) img {
     transition: 1s object-position;
 }
 
 .samples-list details:not([open]):is(:hover, :focus) img {
     object-position: bottom;
     transition: 10s object-position;
-}
+} */
 
 @media (max-width: 1600px) {
     .samples-list li:has([open]) {
         grid-column: span 3;
     }
+    #graphic-design-main .samples-list li:has([open]) {
+        grid-column: span 4;
+    }
 }
 
 @media (max-width: 1360px) {
-    .samples-list li:has([open]) {
+    .samples-list li:has([open]),
+    #graphic-design-main .samples-list li:has([open]) {
         grid-column: span 3;
         grid-row: span 3;
     }
@@ -219,7 +246,7 @@ li:has(.contact-list) {
 
 details[open] {
     display: flex;
-    background: #192a43;
+    background: var(--open);
     height: 100%;
 }
 
