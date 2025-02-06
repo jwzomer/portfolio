@@ -165,6 +165,10 @@ header:has([data-toggle="design"]:checked)~#graphic-design-main {
     padding: 0;
 }
 
+#graphic-design-main .samples-list {
+    grid-template-columns: repeat(auto-fill, minmax(385px, 1fr));
+}
+
 .samples-list li {
     border-radius: 1vh;
     overflow: clip;
@@ -174,10 +178,6 @@ header:has([data-toggle="design"]:checked)~#graphic-design-main {
     order: -1;
     grid-column: span 4;
     grid-row: span 2;
-}
-
-#graphic-design-main .samples-list li:has([open]) {
-    grid-column: span 5;
 }
 
 .samples-list summary {
