@@ -86,18 +86,20 @@ p:last-child {
 }
 
 a {
-    color: var(--color);
+    color: var(--accent);
     transition: .125s color ease-in-out;
 }
 
 a:is(:hover, :focus) {
-    color: var(--accent);
+    color: var(--color);
 }
 
 
 /* Header */
 
 header {
+    /* position: sticky;
+    top: 0; */
     --gap: 15px;
     display: flex;
     align-items: center;
@@ -110,7 +112,6 @@ header label {
     font-weight: 300;
     font-size: 1.2em;
     cursor: pointer;
-    transition: .125s color ease-in-out;
 }
 
 header label:has(:checked) {
@@ -144,25 +145,30 @@ li:has(.contact-list) {
 
 main {
     /* Hide main sections unless a button is checked */
+    display: none;
+    opacity: 0;
+    transition: .125s opacity ease-in-out;
+    transition-delay: .25s;
 }
 
-header:has([data-toggle="development"]:checked)~main>#web-development-list,
-header:has([data-toggle="design"]:checked)~main>#graphic-design-list {
+header:has([data-toggle="development"]:checked)~#web-development-main,
+header:has([data-toggle="design"]:checked)~#graphic-design-main,
+main:has([data-toggle="design"]:checked)~#graphic-design-main,
+main:has([data-toggle="development"]:checked)~#web-development-main {
     display: block;
     opacity: 1;
-    display: grid;
 }
 
 .samples-list {
-    display: none;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
     grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     gap: var(--gap);
     padding: 0;
 }
 
-#graphic-design-list:is(.samples-list) {
-    grid-template-columns: repeat(auto-fill, minmax(295px, 1fr))
+#graphic-design-main .samples-list {
+    grid-template-columns: repeat(auto-fill, minmax(305px, 1fr))
 }
 
 .samples-list li {
@@ -170,38 +176,10 @@ header:has([data-toggle="design"]:checked)~main>#graphic-design-list {
     overflow: clip;
 }
 
-.samples-list li:has(h2) {
-    order: -2;
-    grid-column: 1 / -1;
-}
-
-details[open],
-details[open] summary {
-    /* Don't close the details element if someone clicks the text */
-    pointer-events: none;
-}
-
-details[open] a {
-    pointer-events: all;
-}
-
-details:not(:is([open])) {
-    cursor: pointer;
-}
-
 .samples-list li:has([open]) {
     order: -1;
     grid-column: span 4;
     grid-row: span 2;
-}
-
-#graphic-design-list:is(.samples-list) li:has([open]) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-#graphic-design-list:is(.samples-list) details:is([open]) {
-    flex-direction: column
 }
 
 .samples-list summary {
@@ -224,36 +202,6 @@ summary:has(.samples-list img[src*="svg"]) {
 
 .samples-list img[src*="svg"] {
     object-position: center;
-}
-
-li:has(.category-link) {
-    grid-column: 1/-1;
-}
-
-
-/* Open Summary */
-
-details[open] {
-    display: flex;
-    background: var(--open);
-    height: 100%;
-}
-
-details[open] img {
-    max-height: calc((var(--max-height) * 2) + var(--row-gap));
-}
-
-#graphic-design-list details[open] img {
-    max-height: calc((var(--max-height) * 1) + var(--row-gap));
-}
-
-details[open] summary {
-    min-width: 50%;
-}
-
-.full-details {
-    padding: 35px 40px;
-    height: 100%;
 }
 
 
@@ -297,4 +245,26 @@ details[open] summary {
 
 @media (max-width: 917px) {
     /* From here down, make everything appear open */
+}
+
+
+/* Open Summary */
+
+details[open] {
+    display: flex;
+    background: var(--open);
+    height: 100%;
+}
+
+details[open] img {
+    max-height: calc((var(--max-height) * 2) + var(--row-gap));
+}
+
+details[open] summary {
+    min-width: 50%;
+}
+
+.full-details {
+    padding: 35px 40px;
+    height: 100%;
 }
