@@ -251,6 +251,7 @@ details:not(:is([open])) {
 
 .samples-list summary::marker {
     display: none;
+    content: none;
 }
 
 summary:has(.samples-list img[src*="svg"]) {
