@@ -171,7 +171,13 @@ header:has([data-toggle="design"]:checked)~main>#graphic-design-list {
 }
 
 #graphic-design-list:is(.samples-list) {
-    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 1750px) {
+    #graphic-design-list:is(.samples-list) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .samples-list li {
@@ -287,9 +293,6 @@ details[open] summary {
 @media (max-width: 1600px) {
     .samples-list li:has([open]) {
         grid-column: span 3;
-    }
-    #graphic-design-main .samples-list li:has([open]) {
-        grid-column: span 4;
     }
 }
 
