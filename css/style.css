@@ -249,6 +249,10 @@ details:not(:is([open])) {
     list-style: none;
 }
 
+.samples-list summary::marker {
+    display: none;
+}
+
 summary:has(.samples-list img[src*="svg"]) {
     background: white;
 }
