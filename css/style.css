@@ -184,6 +184,9 @@ header:has([data-toggle="design"]:checked)~main>#graphic-design-list {
 
 .samples-list li {
     border-radius: 1vh;
+}
+
+.samples-list li:not(:first-child):not(:last-child) {
     overflow: clip;
 }
 
