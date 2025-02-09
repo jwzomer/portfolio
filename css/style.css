@@ -278,10 +278,21 @@ details[open] {
     display: flex;
     background: var(--open);
     height: 100%;
+    flex-direction: row;
 }
 
 details[open] img {
     max-height: calc((var(--max-height) * 2) + var(--row-gap));
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+    /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+    .samples-list li:has([open]) {
+        grid-column: span 3;
+    }
+    details[open] img {
+        max-height: var(--max-height);
+    }
 }
 
 #graphic-design-list details[open] summary {
@@ -339,12 +350,26 @@ details[open] summary {
     }
 }
 
+@media screen and (min--moz-device-pixel-ratio:0) {
+    /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+    details[open] img {
+        max-height: calc(var(--max-height) * 2);
+    }
+}
+
+@media (max-width: 1364px) {
+    .samples-list li:has([open]),
+    #graphic-design-main .samples-list li:has([open]) {
+        grid-column: span 3;
+        grid-row: span 3;
+    }
+    details[open] {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1150px) {
     .samples-list li:has([open]) {
         grid-column: span 2;
     }
-}
-
-@media (max-width: 917px) {
-    /* From here down, make everything appear open */
 }
