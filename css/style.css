@@ -367,15 +367,16 @@ details[open] summary {
     }
 }
 
-@media (max-width: 1363px) {
-    @media screen and (min--moz-device-pixel-ratio: 0) {
-        */
-        /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
-        details[open] img {
-            height: calc(var(--height) * 2);
-        }
+@media screen and (min--moz-device-pixel-ratio: 0) and (max-width: 1363px) {
+    */
+    /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+    details[open] img {
+        height: calc(var(--height) * 2);
     }
-    @supports (-webkit-backdrop-filter: blur(10px)) {
+}
+
+@supports (-webkit-backdrop-filter: blur(10px)) {
+    @media (max-width: 1363px) {
         /* Safari will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
         details[open] img {
             height: calc(var(--height) * 2);
