@@ -302,23 +302,13 @@ details[open] img {
     }
 }
 
-@media not all and (min-resolution: 0.001dpcm) {
-    /* Safari-specific styles */
-    body {
-        background: green;
-    }
-}
-
-@supports (-webkit-touch-callout: none) {
-    /* Safari-specific styles */
-    body {
-        background-color: lightblue;
-    }
-}
-
 @supports (-webkit-backdrop-filter: blur(10px)) {
-    body {
-        background-color: yellow;
+    /* Safari will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+    .samples-list li:has([open]) {
+        grid-column: span 3;
+    }
+    details[open] img {
+        height: var(--height);
     }
 }
 
@@ -377,12 +367,32 @@ details[open] summary {
     }
 }
 
-@media screen and (min--moz-device-pixel-ratio:0) {
-    /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
-    details[open] img {
+
+/* @media screen and (min--moz-device-pixel-ratio:0) { */
+
+
+/* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+
+
+/* details[open] img {
         height: calc(var(--height) * 2);
     }
-}
+} */
+
+
+/* @supports (-webkit-backdrop-filter: blur(10px)) { */
+
+
+/* Safari will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+
+
+/* .samples-list li:has([open]) {
+        grid-column: span 3;
+    }
+    details[open] img {
+        height: var(--height);
+    }
+} */
 
 @media (max-width: 1364px) {
     .samples-list li:has([open]),
