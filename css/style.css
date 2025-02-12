@@ -309,6 +309,13 @@ details[open] img {
     }
 }
 
+@supports (-webkit-touch-callout: none) {
+    /* Safari-specific styles */
+    body {
+        background-color: lightblue;
+    }
+}
+
 #graphic-design-list details[open] summary {
     background: white;
 }
