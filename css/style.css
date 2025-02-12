@@ -249,7 +249,9 @@ details:not(:is([open])) {
     list-style: none;
 }
 
+.samples-list summary::-webkit-details-marker,
 .samples-list summary::marker {
+    /* Remove <details> triangle in Safari */
     display: none;
     content: none;
 }
