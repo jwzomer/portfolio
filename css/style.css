@@ -302,6 +302,13 @@ details[open] img {
     }
 }
 
+@media not all and (min-resolution: 0.001dpcm) {
+    /* Safari-specific styles */
+    body {
+        background: green;
+    }
+}
+
 #graphic-design-list details[open] summary {
     background: white;
 }
