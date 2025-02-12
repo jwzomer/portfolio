@@ -261,10 +261,10 @@ summary:has(.samples-list img[src*="svg"]) {
 }
 
 .samples-list img {
-    --max-height: 25vh;
+    --height: 25vh;
     display: block;
     width: 100%;
-    max-height: var(--max-height);
+    height: var(--height);
     object-fit: cover;
     object-position: top;
     transition: none;
@@ -289,7 +289,7 @@ details[open] {
 }
 
 details[open] img {
-    max-height: calc((var(--max-height) * 2) + var(--row-gap));
+    height: calc((var(--height) * 2) + var(--row-gap));
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
@@ -298,7 +298,7 @@ details[open] img {
         grid-column: span 3;
     }
     details[open] img {
-        max-height: var(--max-height);
+        height: var(--height);
     }
 }
 
@@ -307,7 +307,7 @@ details[open] img {
 }
 
 #graphic-design-list details[open] img {
-    max-height: calc((var(--max-height)* 1) + var(--row-gap));
+    height: calc((var(--height)* 1) + var(--row-gap));
     width: auto;
     margin-inline: auto;
 }
@@ -360,7 +360,7 @@ details[open] summary {
 @media screen and (min--moz-device-pixel-ratio:0) {
     /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
     details[open] img {
-        max-height: calc(var(--max-height) * 2);
+        height: calc(var(--height) * 2);
     }
 }
 
