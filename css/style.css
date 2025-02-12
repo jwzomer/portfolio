@@ -367,32 +367,21 @@ details[open] summary {
     }
 }
 
-
-/* @media screen and (min--moz-device-pixel-ratio:0) { */
-
-
-/* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
-
-
-/* details[open] img {
-        height: calc(var(--height) * 2);
+@media (max-width: 1363px) {
+    @media screen and (min--moz-device-pixel-ratio: 0) {
+        */
+        /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+        details[open] img {
+            height: calc(var(--height) * 2);
+        }
     }
-} */
-
-
-/* @supports (-webkit-backdrop-filter: blur(10px)) { */
-
-
-/* Safari will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
-
-
-/* .samples-list li:has([open]) {
-        grid-column: span 3;
+    @supports (-webkit-backdrop-filter: blur(10px)) {
+        /* Safari will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
+        details[open] img {
+            height: calc(var(--height) * 2);
+        }
     }
-    details[open] img {
-        height: var(--height);
-    }
-} */
+}
 
 @media (max-width: 1364px) {
     .samples-list li:has([open]),
