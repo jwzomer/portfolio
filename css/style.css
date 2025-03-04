@@ -317,7 +317,7 @@ details[open] summary {
     pointer-events: none;
 }
 
-details[open] a {
+details[open] details[open] a {
     pointer-events: all;
 }
 
@@ -325,19 +325,20 @@ details:not(:is([open])) {
     cursor: pointer;
 }
 
-details[open] img {
-    height: calc((var(--height) * 2) + var(--row-gap));
-    min-height: 100%;
+details[open] summary {
+    min-width: 50%;
+    /* background: var(--open);
+    height: 100%; */
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
     /* Firefox will not display <details>[open] descendents horizontally even with flex-direction: rows;  */
     /* .samples-list li:has([open]) {
         grid-column: span 3;
-    }
-    details[open] img {
-        height: var(--height);
-    } */
+        }
+        details[open] img {
+            height: var(--height);
+            } */
 }
 
 @supports (-webkit-backdrop-filter: blur(10px)) {
@@ -354,14 +355,15 @@ details[open] img {
     background: white;
 }
 
+details[open] img {
+    height: calc((var(--height) * 2) + var(--row-gap));
+    min-height: 100%;
+}
+
 #graphic-design-list details[open] img {
     height: calc((var(--height)* 1) + var(--row-gap));
     width: auto;
     margin-inline: auto;
-}
-
-details[open] summary {
-    min-width: 50%;
 }
 
 .full-details {
