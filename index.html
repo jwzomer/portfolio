@@ -12,7 +12,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style-figure.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
 
     <title>Portfolio of John Zomer</title>
 </head>
@@ -296,6 +297,11 @@
         if (mediaQuery.matches) {
             $(':is(#web-development-list, #graphic-design-list) details').prop("open", true);
         }
+    });
+
+    //Prevent link click from bubbling up to <details> and removing [open] property
+    $("details a").click(function(e) {
+        e.stopPropagation();
     });
 </script>
 
