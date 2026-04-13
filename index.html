@@ -27,7 +27,7 @@
         </section>
         <nav>
             <ul>
-                <li><a href="index.html?category=development">Portfolio</a></li>
+                <li><a href="index.html">Portfolio</a></li>
                 <!-- <li><a href="index.html?category=design">Design</a></li> -->
                 <li><a href="resume.html">Resume</a></li>
             </ul>
@@ -289,12 +289,12 @@
     });
 
     //Make all <details> open when screen width is 700px or less
-    $(window).on('load resize', function() {
-        const mediaQuery = window.matchMedia('(max-width: 700px)');
-        if (mediaQuery.matches) {
-            $(':is(#web-development-list, #graphic-design-list) details').prop("open", true);
-        }
-    });
+    //$(window).on('load resize', function() {
+        // const mediaQuery = window.matchMedia('(max-width: 700px)');
+        // if (mediaQuery.matches) {
+        //     $(':is(#web-development-list, #graphic-design-list) details').prop("open", true);
+        // }
+    //});
 
     //Prevent link click from bubbling up to <details> and removing [open] property
     $("details a").click(function(e) {
