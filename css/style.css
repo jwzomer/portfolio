@@ -88,7 +88,7 @@ button,
     --small-gap: 1.5ch;
     --radius: 4px;
     --heading-margin: .5em;
-    font-size: clamp(18px, 3vw, 22px);
+    font-size: clamp(18px, 2.5vw, 22px);
     color: #666;
     overflow-x: clip;
     background: var(--background);
@@ -118,7 +118,7 @@ body {
     justify-content: space-between;
     min-height: 100vh;
     max-width: 1800px;
-    padding-inline: clamp(15px, 6vw, 100px);
+    padding-inline: clamp(15px, 3vw, 100px);
 
     @media print {
         max-width: 8.5in;
