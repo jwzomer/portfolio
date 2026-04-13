@@ -341,6 +341,10 @@ header nav ul {
         & img {
             height: calc((var(--height) * 2) + var(--row-gap));
             min-height: 100%;
+
+            @media (max-width: 700px) {
+                max-height: calc(var(--height) * 1.5);
+            }
         }
 
         &:is(a, button) {
@@ -592,3 +596,4 @@ footer {
         height: 30px;
     }
 }
+
