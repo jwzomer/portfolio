@@ -281,14 +281,26 @@ header nav ul {
 
 .samples-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(205px, 100%), 1fr));
     grid-template-columns: repeat(6, 1fr);
     gap: var(--gap);
     padding: 0;
 
+    @media (max-width: 1550px) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(auto-fill, minmax(min(var(--height), 100%), 1fr));
+    } 
+
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
     & li {
         border-radius: var(--radius);
         overflow: clip;
+
+        @media (max-width: 1000px) {
+            max-height: calc(var(--height) * .5);
+        }
 
         &:has([open]) {
             display: flex;
@@ -299,7 +311,18 @@ header nav ul {
             grid-column: span 3;
             grid-row: span 2;
             container-type: inline-size;
+
+            @media (max-width: 1550px) {
+                grid-row: span 3;
+                flex-direction: column;
+            }
+
+            @media (max-width: 1000px) {
+                grid-column: span 6;
+                max-height: unset;
+            }
         }
+
     }
 
     & img {
@@ -322,21 +345,21 @@ header nav ul {
     &[open] {
         display: contents;
         
-        &, & summary {
-            /* Don't close the details element if someone clicks the text */
-            pointer-events: none;
-        }
-
         & summary {
             min-width: 50%;
+            /* Don't close the details element if someone clicks the text */
+            pointer-events: none;
         }
         
         & .full-details {
             padding: 35px 40px;
             height: 100%;
+
+            @media (max-width: 1550px) {
+                max-height: calc(var(--height) + var(--column-gap));
+            }
             
             @container (width < 4000px) {
-                padding: clamp(15px, 8.75cqh, 35px) clamp(2ch, 10cqw, 40px);
                 padding: clamp(15px, 3cqh, 35px) clamp(2ch, 5cqw, 40px);
                 font-size: clamp(17.5px, 3.5cqh, 1rem);
                 line-height: clamp(1em, 5cqh, 1.3em);
@@ -363,33 +386,14 @@ header nav ul {
     }
 }
 
-@media (max-width: 1550px) {
-    .samples-list {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(auto-fill, minmax(min(var(--height), 100%), 1fr));
-    }
-    .samples-list li:has([open]) {
-        grid-row: span 3;
-        flex-direction: column;
-    }
-    .full-details {
-        max-height: calc(var(--height) + var(--column-gap));
-    }
-}
 
 
-@media (max-width: 1000px) {
-    .samples-list {
-        grid-template-columns: repeat(6, 1fr);
-    }
-    .samples-list li {
-        max-height: calc(var(--height) * .5);
-    }
+/* @media (max-width: 1000px) {
     .samples-list li:has([open]) {
         grid-column: span 6;
         max-height: unset;
     }
-}
+} */
 
 
 /* Resume styles */
